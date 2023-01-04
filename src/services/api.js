@@ -11,4 +11,8 @@ export const getUsers = async()=>{
   const users = await axios.get(`${pathApi}/users`)
   return users.data
 }
+export const getColors = async()=>{
+  const colors = await axios.get(`${pathApi}/colors`)
+  return colors.data
+}
 
