@@ -92,7 +92,8 @@ h6 {
 }
 p {
   margin-top: 0;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
+  color:black
 }
 abbr[data-original-title],
 abbr[title] {
@@ -336,7 +337,8 @@ h5,
 h6 {
   margin-bottom: .5rem;
   font-weight: 400;
-  line-height: 1.2
+  line-height: 1.2; 
+  color: #5a5c69;
 }
 .h1,
 h1 {
@@ -5654,7 +5656,7 @@ button.bg-dark:hover {
   background-color: #42444e!important
 }
 .bg-white {
-  background-color: #fff!important
+  background-color: #636262!important
 }
 .bg-transparent {
   background-color: transparent!important
@@ -8413,6 +8415,8 @@ button.bg-dark:hover {
   text-align: right!important
 }
 .text-center {
+  color:black ;
+  font-weight: bold;
   text-align: center!important
 }
 @media (min-width: 576px) {
@@ -8853,7 +8857,8 @@ a:focus {
   color: #b7b9cc!important
 }
 .text-gray-600 {
-  color: #858796!important
+  font-weight: bold;
+  color: white!important
 }
 .text-gray-700 {
   color: #6e707e!important

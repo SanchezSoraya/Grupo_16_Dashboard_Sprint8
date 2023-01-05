@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/mountain.png';
 import ContentWrapper from './ContentWrapper';
 import LastMovieInDb from './LastMovieInDb';
 import CardsInfo from './CardsInfo';
@@ -96,7 +96,7 @@ function SideBar(){
                 <li className="nav-item nav-link">
                 <Link className="nav-link" to="/ContentRowMovies">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Last loads</span></Link>
                 </li>
                 
                 {/*<!-- Buscador -->*/}

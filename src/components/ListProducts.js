@@ -2,7 +2,7 @@ export function ListProducts ({products}){
 
   return(
     <div class="table-responsive">
-      <h2> Lista de Products</h2>
+      <h2> Lista de Productos</h2>
 
     <table class="table table-dark table-bordered" width="100%">
       <thead>
