@@ -1,14 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../assets/images/logo-DH.png';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
 import CardsInfo from './CardsInfo';
 import SearchMovies from './SearchMovies';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
+import { getColors, getProducts, getSizes, getUsers } from '../services/api';
 
 function SideBar(){
+    const [cartProps, setCartProps] = useState([])
+    const [products, setProducts] = useState([])
+
+	useEffect(()=>{
+			fetchData()
+		 },[])
+
+	 const fetchData = async()=>{
+		 const promises = [getProducts(), getUsers(), getColors(), getSizes()] // lista de promesas para obtener informacion de products, usuarios
+		 const response = await Promise.allSettled(promises) // ejecutar todas promesas a la vez
+						 
+		 setCartProps([
+			 {
+				 title: 'Productos',
+				 color: 'primary',
+				 cuantity: response[0].value.count.toString(),
+				 icon:'fas fa-tshirt',
+			 },
+			 {
+				 title: 'Users',
+				 color: 'primary',
+				 cuantity: response[1].value.count.toString(),
+				 icon:'fa-duotone fa-user',
+			 }, 
+			 {
+				 title: 'colors',
+				 color: 'primary', 
+				 cuantity: response[2].value.count.toString(),
+				 icon:'fas fa-pen-nib',
+			 },
+			 {
+				 title: 'sizes',
+				 color: 'primary', 
+				 cuantity: response[3].value.count.toString(),
+				 icon:'fas fa-ruler-combined',
+			 }
+		 ])
+		 setProducts(response[0].value.products)
+		}
+
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
@@ -90,16 +130,16 @@ function SideBar(){
             {/*<!-- End Microdesafio 2 -->*/}
             <Switch>
                 <Route exact path="/">
-                    <ContentWrapper />
+                    <ContentWrapper  cartProps={cartProps} products={products}/>
                 </Route>
-                <Route path="/GenresInDb">
+                {/* <Route path="/GenresInDb">
                     <GenresInDb />
-                </Route>
+                </Route> */}
                 <Route path="/LastMovieInDb">
                     <LastMovieInDb />
                 </Route>
                 <Route path="/ContentRowMovies">
-                    <CardsInfo />
+                    <CardsInfo cartProps={cartProps} products={products} />
                 </Route>
                 <Route path="/SearchMovies">
                     <SearchMovies />

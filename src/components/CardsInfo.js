@@ -4,8 +4,8 @@ import SmallCard from './SmallCard';
 function CardsInfo({cartProps}){
     return (
         <div className="row">         
-            {cartProps.map( (movie, i) => {
-                return <SmallCard {...movie} key={i}/>            
+            {cartProps.map((row, i) => {
+                return <SmallCard {...row} key={i}/>            
             })}
         </div>
     )

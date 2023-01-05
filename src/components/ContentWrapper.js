@@ -2,7 +2,8 @@ import React from 'react';
 import TopBar from './TopBar';
 import ContentRowTop from './ContentRowTop';
 import Footer from './Footer';
-function ContentWrapper(){
+function ContentWrapper({cartProps, products}){
+
     return (
         <React.Fragment>
             {/*<!-- Content Wrapper -->*/}
@@ -10,7 +11,7 @@ function ContentWrapper(){
                 {/*<!-- Main Content -->*/}
                 <div id="content">
                     <TopBar />
-                    <ContentRowTop />
+                    <ContentRowTop cartProps={cartProps} products={products} />
                     <Footer />
                 </div>
             </div>    

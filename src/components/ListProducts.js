@@ -10,7 +10,7 @@ export function ListProducts ({products}){
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Description</th>
-          <th scope="col">Colors</th>
+          <th scope="col">Color</th>
           <th scope="col">Size</th>
         </tr>
       </thead>
