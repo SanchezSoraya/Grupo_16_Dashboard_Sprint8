@@ -4,7 +4,7 @@ import noPoster from '../assets/images/no-poster.jpg';
 
 function SearchMovies(){
 	const [movies, setMovies] = useState([]);
-	const [keyword, setKeyword] = useState('comedy');
+	const [keyword, setKeyword] = useState('Pantalon');
 
 	const inputTag = useRef();
 
@@ -55,7 +55,7 @@ function SearchMovies(){
 					</div>
 					<div className="row">
 						<div className="col-12">
-							<h2>Películas para la palabra: {keyword}</h2>
+							<h2>Productos para la palabra: {keyword}</h2>
 						</div>
 						{/* Listado de películas */}
 						{
@@ -83,7 +83,7 @@ function SearchMovies(){
 							})
 						}
 					</div>
-					{ movies.length === 0 && <div className="alert alert-warning text-center">No se encontraron películas</div>}
+					{ movies.length === 0 && <div className="alert alert-warning text-center">No se encontraron productos</div>}
 				</>
 				:
 				<div className="alert alert-danger text-center my-4 fs-2">Eyyyy... ¿PUSISTE TU APIKEY?</div>

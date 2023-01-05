@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SmallCard from './SmallCard';
-import { getProducts, getUsers, getColors } from '../services/api';
+import { getProducts, getUsers, getColors, getSizes } from '../services/api';
 
 // /*  Cada set de datos es un objeto literal */
 
@@ -43,7 +43,7 @@ function ContentRowMovies(){
         },[])
 
       const fetchData = async()=>{
-        const promises = [getProducts(), getUsers(), getColors()] // lista de promesas para obtener informacion de products, usuarios
+        const promises = [getProducts(), getUsers(), getColors(), getSizes()] // lista de promesas para obtener informacion de products, usuarios
         const response = await Promise.allSettled(promises) // ejecutar todas promesas a la vez
         
         console.log(response)
@@ -53,19 +53,25 @@ function ContentRowMovies(){
             title: 'Productos',
             color: 'primary',
             cuantity: response[0].value.count.toString(),
-            icon:'fa-user-check',
+            icon:'fas fa-tshirt',
           },
           {
             title: 'Users',
             color: 'primary',
             cuantity: response[1].value.count.toString(),
-            icon:'fa-user-check',
+            icon:'fa-duotone fa-user',
           }, 
           {
             title: 'colors',
             color: 'primary', 
             cuantity: response[2].value.count.toString(),
-            icon:'fa-user-check',
+            icon:'fas fa-pen-nib',
+          },
+          {
+            title: 'sizes',
+            color: 'primary', 
+            cuantity: response[3].value.count.toString(),
+            icon:'fas fa-ruler-combined',
           }
         ])
        }

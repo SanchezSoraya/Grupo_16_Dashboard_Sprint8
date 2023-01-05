@@ -15,4 +15,8 @@ export const getColors = async()=>{
   const colors = await axios.get(`${pathApi}/colors`)
   return colors.data
 }
+export const getSizes = async()=>{
+  const sizes = await axios.get(`${pathApi}/sizes`)
+  return sizes.data
+}
 

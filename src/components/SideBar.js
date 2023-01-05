@@ -28,7 +28,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Dashboard - Turisfront</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -63,7 +63,7 @@ function SideBar(){
                 <li className="nav-item nav-link">
                     <Link className="nav-link" to="/SearchMovies">
                         <i className="fas fa-search"></i>
-                        <span>Search a movie</span>
+                        <span>Search a products</span>
                     </Link>
                 </li>
 
