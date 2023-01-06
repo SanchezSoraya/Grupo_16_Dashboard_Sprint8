@@ -19,4 +19,12 @@ export const getSizes = async()=>{
   const sizes = await axios.get(`${pathApi}/sizes`)
   return sizes.data
 }
+export const getLastUser = async()=>{
+  const userLast = await axios.get(`${pathApi}/users/Last`)
+  return userLast.data
+}
+export const getLastProduct = async()=>{
+  const productLast = await axios.get(`${pathApi}/products/last`)
+  return productLast.data
+}
 

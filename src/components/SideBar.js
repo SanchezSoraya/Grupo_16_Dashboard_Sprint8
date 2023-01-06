@@ -6,20 +6,22 @@ import CardsInfo from './CardsInfo';
 import SearchMovies from './SearchMovies';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
-import { getColors, getProducts, getSizes, getUsers } from '../services/api';
+import { getColors, getProducts, getSizes, getUsers, getLastUser, getLastProduct } from '../services/api';
+import { LastRegisters } from './LastRegisters';
 
 function SideBar(){
     const [cartProps, setCartProps] = useState([])
     const [products, setProducts] = useState([])
+    const [lastRegisters, setLastRegisters] = useState([])
 
 	useEffect(()=>{
 			fetchData()
 		 },[])
 
 	 const fetchData = async()=>{
-		 const promises = [getProducts(), getUsers(), getColors(), getSizes()] // lista de promesas para obtener informacion de products, usuarios
+		 const promises = [getProducts(), getUsers(), getColors(), getSizes(), getLastUser(), getLastProduct()] // lista de promesas para obtener informacion de products, usuarios
 		 const response = await Promise.allSettled(promises) // ejecutar todas promesas a la vez
-						 
+			console.log(response)			 
 		 setCartProps([
 			 {
 				 title: 'Productos',
@@ -47,6 +49,18 @@ function SideBar(){
 			 }
 		 ])
 		 setProducts(response[0].value.products)
+         setLastRegisters([
+            {
+              nameTable: "Users",
+              id: response[4].value.id,
+              name: response[4].value.first_name
+            },
+            {
+              nameTable: "Products",
+              id: response[5].value.id,
+              name: response[5].value.name
+            }
+          ])
 		}
 
     return(
@@ -94,9 +108,9 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowMovies">
+                <Link className="nav-link" to="/lastRegisters">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Last loads</span></Link>
+                        <span>Ultimos Registros de Tablas</span></Link>
                 </li>
                 
                 {/*<!-- Buscador -->*/}
@@ -138,8 +152,8 @@ function SideBar(){
                 <Route path="/LastMovieInDb">
                     <LastMovieInDb />
                 </Route>
-                <Route path="/ContentRowMovies">
-                    <CardsInfo cartProps={cartProps} products={products} />
+                <Route path="/lastRegisters">
+                    <LastRegisters lastRegisters={lastRegisters} />
                 </Route>
                 <Route path="/SearchMovies">
                     <SearchMovies />

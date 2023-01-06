@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ContentRowCenter from './ContentRowCenter';
 import CardsInfo from './CardsInfo';
 import { ListProducts } from './ListProducts';
-import { getColors, getProducts, getSizes, getUsers } from '../services/api';
+import { getColors, getProducts, getSizes, getUsers, getLastUser } from '../services/api';
 
 function ContentRowTop({cartProps, products}){
     return(
