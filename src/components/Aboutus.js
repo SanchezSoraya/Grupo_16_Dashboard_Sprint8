@@ -1,8 +1,11 @@
 import React from 'react';
 import imagenFondo from '../assets/images/banner3.jpg';
+import TopBar from './TopBar';
 
-function LastMovieInDb(){
+export function Aboutus(){
     return(
+        <div className="w-100">
+        <TopBar/>
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
@@ -19,7 +22,7 @@ Nuestra audiencia apuntara a las personas mayores de edad que les encante la nat
                 </div>
             </div>
         </div>
+        </div>
     )
 }
 
-export default LastMovieInDb;

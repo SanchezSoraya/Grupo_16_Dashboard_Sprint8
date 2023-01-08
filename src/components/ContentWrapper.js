@@ -1,7 +1,8 @@
 import React from 'react';
 import TopBar from './TopBar';
-import ContentRowTop from './ContentRowTop';
+import {Summary} from './Summary';
 import Footer from './Footer';
+
 function ContentWrapper({cartProps, products}){
 
     return (
@@ -11,7 +12,7 @@ function ContentWrapper({cartProps, products}){
                 {/*<!-- Main Content -->*/}
                 <div id="content">
                     <TopBar />
-                    <ContentRowTop cartProps={cartProps} products={products} />
+                    <Summary cartProps={cartProps} products={products} />
                     <Footer />
                 </div>
             </div>    

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import ContentRowCenter from './ContentRowCenter';
+import React from 'react';
+import { Aboutus } from './Aboutus';
 import CardsInfo from './CardsInfo';
-import { ListProducts } from './ListProducts';
-import { getColors, getProducts, getSizes, getUsers, getLastUser } from '../services/api';
 
-function ContentRowTop({cartProps, products}){
+import { ListProducts } from './ListProducts';
+
+export function Summary({cartProps, products}){
     return(
         <React.Fragment>
 				{/*<!-- Content Row Top -->*/}
@@ -15,7 +15,7 @@ function ContentRowTop({cartProps, products}){
 				
 					{/*<!-- Content Row Movies-->*/}
 					<CardsInfo cartProps={cartProps} />
-					<ContentRowCenter />
+				
 					{/* <Chart /> */}
 
 					{/* lista de productos */}
@@ -29,4 +29,3 @@ function ContentRowTop({cartProps, products}){
     )
 
 }
-export default ContentRowTop;

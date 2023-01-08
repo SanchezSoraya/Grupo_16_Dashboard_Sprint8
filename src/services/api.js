@@ -27,4 +27,7 @@ export const getLastProduct = async()=>{
   const productLast = await axios.get(`${pathApi}/products/last`)
   return productLast.data
 }
-
+export const getSearchProducts = async(name)=>{
+  const productSearch = await axios.get(`${pathApi}/products/buscar?name=${name}`)
+  return productSearch.data
+}
